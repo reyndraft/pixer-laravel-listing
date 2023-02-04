@@ -7,6 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from 'next-themes';
 import { appWithTranslation } from 'next-i18next';
+import Script from 'next/script';
 import { validateEnvironmentVariables } from '@/config/validate-environment-variables';
 import { CartProvider } from '@/components/cart/lib/cart.context';
 import { ModalProvider } from '@/components/modal-views/context';
@@ -66,6 +67,16 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
                 >
                   <>
                     <DefaultSeo />
+                    <Script
+                      strategy="afterInteractive"
+                      src="https://www.googletagmanager.com/gtag/js?id=G-J48HC3D37W"
+                    />
+                    <Script id="google-analytics" strategy="afterInteractive">
+                      {` window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+                      gtag('config', 'G-J48HC3D37W');`}
+                    </Script>
                     {authenticationRequired ? (
                       <PrivateRoute>
                         {getLayout(<Component {...pageProps} />)}

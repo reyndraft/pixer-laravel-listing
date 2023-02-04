@@ -18,6 +18,10 @@ const DefaultSeo = () => {
           name: 'theme-color',
           content: '#ffffff',
         },
+        {
+          name: 'google-site-verification',
+          content: 'oFKQfzVvyCpkvpBWZZZ1PwXL10EXKkGxqEQ33864-ac',
+        },
       ]}
       additionalLinkTags={[
         {
